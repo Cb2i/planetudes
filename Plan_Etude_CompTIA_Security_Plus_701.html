@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan d'Étude CompTIA Security+ 701</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .meta {
+            font-size: 16px;
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        .overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-left: 5px solid #4472C4;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4472C4;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #4472C4;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #4472C4;
+        }
+
+        .week {
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border-left: 4px solid #4472C4;
+            transition: all 0.3s;
+        }
+
+        .week-header {
+            background: linear-gradient(135deg, #4472C4 0%, #3d5fa3 100%);
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+            transition: all 0.3s;
+        }
+
+        .week-header:hover {
+            background: linear-gradient(135deg, #3d5fa3 0%, #2d4682 100%);
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+            font-size: 18px;
+        }
+
+        .week.active .chevron {
+            transform: rotate(180deg);
+        }
+
+        .week-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .week.active .week-content {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+
+        .week-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .week-item {
+            font-size: 14px;
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #70AD47;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .week-item strong {
+            color: #70AD47;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 15px;
+        }
+
+        .objectif {
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 6px;
+            font-style: italic;
+            color: #2e7d32;
+            border-left: 3px solid #70AD47;
+        }
+
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .checklist-domain {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 4px solid #4472C4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .checklist-domain h4 {
+            margin-bottom: 1.5rem;
+            font-size: 16px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .checklist-item:hover {
+            background: rgba(68, 114, 196, 0.05);
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            margin-right: 0.75rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .checklist-item.checked .checkbox {
+            background: #70AD47;
+            border-color: #70AD47;
+            color: white;
+            font-weight: bold;
+        }
+
+        .checklist-label {
+            font-size: 14px;
+            line-height: 1.5;
+            cursor: pointer;
+            flex-grow: 1;
+            user-select: none;
+        }
+
+        .checklist-item.checked .checklist-label {
+            color: #95a5a6;
+            text-decoration: line-through;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ecf0f1;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 15px;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover {
+            color: #2c3e50;
+        }
+
+        .tab-btn.active {
+            color: #4472C4;
+            border-bottom-color: #4472C4;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #4472C4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: #4472C4;
+            margin-bottom: 0.5rem;
+            font-size: 15px;
+        }
+
+        .resource-link {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .resource-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .tips {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            border-left: 4px solid #4472C4;
+        }
+
+        .tips ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .tips li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4472C4;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .week-progress-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 4px solid #4472C4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .week-progress-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-percentage {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4472C4;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4472C4 0%, #70AD47 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+            font-size: 14px;
+        }
+
+        .progress-item:hover {
+            background: rgba(68, 114, 196, 0.05);
+        }
+
+        .progress-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            accent-color: #4472C4;
+        }
+
+        .progress-item span {
+            cursor: pointer;
+        }
+
+        .progress-item input[type="checkbox"]:checked + span {
+            color: #95a5a6;
+            text-decoration: line-through;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: #4472C4;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(68, 114, 196, 0.3);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .print-btn:hover {
+            background: #3d5fa3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(68, 114, 196, 0.4);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .print-btn {
+                display: none;
+            }
+            .week {
+                break-inside: avoid;
+            }
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .week-items {
+                grid-template-columns: 1fr;
+            }
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            .checklist {
+                grid-template-columns: 1fr;
+            }
+            .print-btn {
+                padding: 0.5rem 1rem;
+                font-size: 12px;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Plan d'Étude CompTIA Security+ 701</h1>
+            <p class="subtitle">Analyste en Sécurité</p>
+            <p class="meta">Période: 22 mars - 30 avril 2026 (5-6 semaines)</p>
+        </header>
+
+        <div class="overview">
+            <div class="stat-card">
+                <div class="stat-number">23h</div>
+                <div class="stat-label">Disponible par semaine (15h en semaine + 8h weekend)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">~115h</div>
+                <div class="stat-label">Temps total disponible pour préparer</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50-60h</div>
+                <div class="stat-label">Temps recommandé (vous avez une marge!)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">≥80%</div>
+                <div class="stat-label">Score visé pour réussite (750/900 points)</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>📅 Calendrier d'Étude par Semaine</h2>
+
+            <div class="week active">
+                <div class="week-header">
+                    <span>Semaine 1: 22-28 mars</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>1h</strong> Introduction & Objectifs</div>
+                        <div class="week-item"><strong>8h</strong> Threats, Attacks & Vulns - Partie 1</div>
+                        <div class="week-item"><strong>6h</strong> Exercices pratiques & Quiz</div>
+                        <div class="week-item"><strong>8h</strong> Révision du contenu</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Maîtriser les concepts fondamentaux des menaces et attaques</div>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-header">
+                    <span>Semaine 2: 29 mars - 4 avril</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>8h</strong> Threats, Attacks & Vulns - Partie 2</div>
+                        <div class="week-item"><strong>7h</strong> Architecture and Design - Partie 1</div>
+                        <div class="week-item"><strong>6h</strong> Pratique et exercices</div>
+                        <div class="week-item"><strong>2h</strong> Révision</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Comprendre les architectures de sécurité (CIA, AAA, Zero Trust)</div>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-header">
+                    <span>Semaine 3: 5-11 avril</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>8h</strong> Architecture and Design - Partie 2</div>
+                        <div class="week-item"><strong>8h</strong> Implementation - Partie 1</div>
+                        <div class="week-item"><strong>4h</strong> Exercices pratiques</div>
+                        <div class="week-item"><strong>3h</strong> Quiz et révision</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Implémenter les contrôles de sécurité (Auth, Chiffrement, RBAC)</div>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-header">
+                    <span>Semaine 4: 12-18 avril</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>8h</strong> Implementation - Partie 2</div>
+                        <div class="week-item"><strong>8h</strong> Operations & Incident Response</div>
+                        <div class="week-item"><strong>4h</strong> Pratique</div>
+                        <div class="week-item"><strong>3h</strong> Révision</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Maîtriser les opérations de sécurité et la gestion d'incidents</div>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-header">
+                    <span>Semaine 5: 19-25 avril</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>8h</strong> Governance, Risk & Compliance</div>
+                        <div class="week-item"><strong>10h</strong> Examens pratiques complets</div>
+                        <div class="week-item"><strong>4h</strong> Révision des domaines faibles</div>
+                        <div class="week-item"><strong>1h</strong> Stratégie d'examen</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Préparation intensive pour l'examen final</div>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-header">
+                    <span>Semaine 6: 26-30 avril</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-items">
+                        <div class="week-item"><strong>10h</strong> Révision générale intensive</div>
+                        <div class="week-item"><strong>3h</strong> Examen blanc final</div>
+                        <div class="week-item"><strong>6h</strong> Travail sur points faibles</div>
+                        <div class="week-item"><strong>-</strong> Repos et préparation mentale</div>
+                    </div>
+                    <div class="objectif">🎯 Objectif: Être prêt pour l'examen avant le 30 avril!</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📊 Suivi de Progression par Semaine</h2>
+            <p style="margin-bottom: 1.5rem; color: #7f8c8d;">Suivez votre avancement semaine par semaine. Les barres de progression se mettent à jour automatiquement.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 1</h4>
+                        <span class="progress-percentage" id="week1-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week1-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(1, this)">
+                            <input type="checkbox" class="week-check week1-check">
+                            <span>Introduction & Objectifs</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(1, this)">
+                            <input type="checkbox" class="week-check week1-check">
+                            <span>Menaces & Attaques (Partie 1)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(1, this)">
+                            <input type="checkbox" class="week-check week1-check">
+                            <span>Exercices pratiques</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(1, this)">
+                            <input type="checkbox" class="week-check week1-check">
+                            <span>Quiz domaine ≥70%</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 2</h4>
+                        <span class="progress-percentage" id="week2-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week2-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(2, this)">
+                            <input type="checkbox" class="week-check week2-check">
+                            <span>Menaces & Attaques (Partie 2)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(2, this)">
+                            <input type="checkbox" class="week-check week2-check">
+                            <span>Architecture (Partie 1)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(2, this)">
+                            <input type="checkbox" class="week-check week2-check">
+                            <span>Exercices pratiques</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(2, this)">
+                            <input type="checkbox" class="week-check week2-check">
+                            <span>Quiz domaine ≥70%</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 3</h4>
+                        <span class="progress-percentage" id="week3-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week3-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(3, this)">
+                            <input type="checkbox" class="week-check week3-check">
+                            <span>Architecture (Partie 2)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(3, this)">
+                            <input type="checkbox" class="week-check week3-check">
+                            <span>Implementation (Partie 1)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(3, this)">
+                            <input type="checkbox" class="week-check week3-check">
+                            <span>Exercices pratiques</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(3, this)">
+                            <input type="checkbox" class="week-check week3-check">
+                            <span>Quiz domaine ≥70%</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 4</h4>
+                        <span class="progress-percentage" id="week4-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week4-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(4, this)">
+                            <input type="checkbox" class="week-check week4-check">
+                            <span>Implementation (Partie 2)</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(4, this)">
+                            <input type="checkbox" class="week-check week4-check">
+                            <span>Operations & Incidents</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(4, this)">
+                            <input type="checkbox" class="week-check week4-check">
+                            <span>Exercices pratiques</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(4, this)">
+                            <input type="checkbox" class="week-check week4-check">
+                            <span>Quiz domaine ≥70%</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 5</h4>
+                        <span class="progress-percentage" id="week5-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week5-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(5, this)">
+                            <input type="checkbox" class="week-check week5-check">
+                            <span>Governance, Risk & Compliance</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(5, this)">
+                            <input type="checkbox" class="week-check week5-check">
+                            <span>Examens pratiques complets</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(5, this)">
+                            <input type="checkbox" class="week-check week5-check">
+                            <span>Révision domaines faibles</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(5, this)">
+                            <input type="checkbox" class="week-check week5-check">
+                            <span>Simulé ≥80%</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="week-progress-card">
+                    <div class="progress-header">
+                        <h4 style="margin: 0; color: #2c3e50;">Semaine 6</h4>
+                        <span class="progress-percentage" id="week6-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="week6-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-items">
+                        <label class="progress-item" onclick="trackWeekProgress(6, this)">
+                            <input type="checkbox" class="week-check week6-check">
+                            <span>Révision générale intensive</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(6, this)">
+                            <input type="checkbox" class="week-check week6-check">
+                            <span>Examen blanc final</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(6, this)">
+                            <input type="checkbox" class="week-check week6-check">
+                            <span>Passer l'examen!</span>
+                        </label>
+                        <label class="progress-item" onclick="trackWeekProgress(6, this)">
+                            <input type="checkbox" class="week-check week6-check">
+                            <span>Obtenir ≥750 points</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #e8f5e9; border-left: 4px solid #70AD47; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h4 style="margin-top: 0; color: #2e7d32;">📈 Progression globale</h4>
+                <div class="progress-bar" style="height: 12px;">
+                    <div class="progress-fill" id="global-fill" style="width: 0%; background: linear-gradient(90deg, #70AD47 0%, #4472C4 100%);"></div>
+                </div>
+                <p style="margin-top: 1rem; margin-bottom: 0; color: #2e7d32; font-weight: 600;">
+                    <span id="global-count">0</span> / <span id="global-total">24</span> items complétés (<span id="global-percent">0%</span>)
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>✅ Checklist de Préparation par Domaine</h2>
+            <p style="margin-bottom: 1.5rem; color: #7f8c8d;">Cliquez sur chaque item pour cocher votre progression. Votre progression est sauvegardée automatiquement.</p>
+
+            <div class="checklist">
+                <div class="checklist-domain">
+                    <h4>Threats, Attacks & Vulnerabilities (24%)</h4>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Identifier types d'attaques (malware, ransomware, phishing)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Comprendre vulnérabilités communes (OWASP)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Reconnaître techniques d'exploitation</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Évaluation des menaces et analyses de risque</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Indicateurs de compromission (IoC)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Quiz domaine réussi avec ≥80%</div>
+                    </div>
+                </div>
+
+                <div class="checklist-domain">
+                    <h4>Architecture and Design (21%)</h4>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Modèles de sécurité (CIA, AAA, Zero Trust)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Architecture réseau sécurisée</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Design des contrôles (admin, technique, physique)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Cloisonnement et microsegmentation</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Haute disponibilité et résilience</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Quiz domaine réussi avec ≥80%</div>
+                    </div>
+                </div>
+
+                <div class="checklist-domain">
+                    <h4>Implementation (25%)</h4>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Authentification et autorisation (MFA, OAuth, SAML)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Chiffrement (symétrique, asymétrique, PKI)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Contrôle d'accès (RBAC, ABAC)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Outils et technologies de sécurité</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Configuration sécurisée des systèmes</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Quiz domaine réussi avec ≥80%</div>
+                    </div>
+                </div>
+
+                <div class="checklist-domain">
+                    <h4>Operations & Incident Response (16%)</h4>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Processus de gestion d'incidents</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Réponse aux incidents (containment, eradication)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Monitoring et détection des menaces</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Logs et alertes</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Rétablissement et leçons apprises</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Quiz domaine réussi avec ≥80%</div>
+                    </div>
+                </div>
+
+                <div class="checklist-domain">
+                    <h4>Governance, Risk & Compliance (14%)</h4>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Frameworks (NIST, ISO 27001, CIS)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Gestion des risques et évaluations</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Conformité réglementaire (GDPR, HIPAA)</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Processus de gouvernance</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Politiques de sécurité</div>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox">✓</div>
+                        <div class="checklist-label">Quiz domaine réussi avec ≥80%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📚 Ressources d'Étude Recommandées</h2>
+
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab(this, 'youtube')">YouTube</button>
+                <button class="tab-btn" onclick="switchTab(this, 'pratique')">Pratique d'Examen</button>
+                <button class="tab-btn" onclick="switchTab(this, 'blogs')">Articles & Blogs</button>
+                <button class="tab-btn" onclick="switchTab(this, 'labs')">Labs Pratiques</button>
+            </div>
+
+            <div class="tab-content active" id="youtube">
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">Professor Messer Security+ 701</div>
+                        <div class="resource-link">YouTube • Gratuit</div>
+                        <div class="resource-desc">LA référence incontournable. Vidéos courtes et bien structurées. Absolument recommandé pour débuter!</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">CompTIA Security+ 701 Complet</div>
+                        <div class="resource-link">YouTube • Gratuit</div>
+                        <div class="resource-desc">Cours complets en français. Excellente couverture de tous les domaines.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Cybersecurity Academy</div>
+                        <div class="resource-link">YouTube • Gratuit</div>
+                        <div class="resource-desc">Tutoriels pratiques et démonstrations. Approche très didactique.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Hak5</div>
+                        <div class="resource-link">YouTube • Gratuit</div>
+                        <div class="resource-desc">Sécurité offensive et défensive. Contenu très technique et inspirant.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="pratique">
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">ExamCompass</div>
+                        <div class="resource-link">examcompass.com • Gratuit</div>
+                        <div class="resource-desc">Questions gratuites avec explications détaillées. Excellent point de départ!</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">CompTIA CertMaster Learn</div>
+                        <div class="resource-link">comptia.org • Payant (~$250)</div>
+                        <div class="resource-desc">Officiel CompTIA. Très complet avec vidéos et exercices interactifs.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Professor Messer Practice Exams</div>
+                        <div class="resource-link">professormesser.com • Gratuit & Payant</div>
+                        <div class="resource-desc">Examens pratiques de qualité. Certains gratuits, autres payants.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Boson ExSim-Max</div>
+                        <div class="resource-link">boson.com • Payant (~$150)</div>
+                        <div class="resource-desc">Très proche du vrai examen. HAUTEMENT recommandé pour la dernière semaine!</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Udemy Security+ 701 Courses</div>
+                        <div class="resource-link">udemy.com • Payant (~15-20€ en promo)</div>
+                        <div class="resource-desc">Nombreuses options de cours avec pratique intégrée. Bon rapport qualité-prix.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">MeasureUp Practice Tests</div>
+                        <div class="resource-link">measureup.com • Payant (~$100)</div>
+                        <div class="resource-desc">Tests officiels CompTIA. Référence pour vous préparer sérieusement.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="blogs">
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">TechExams Community</div>
+                        <div class="resource-link">techexams.com • Gratuit</div>
+                        <div class="resource-desc">Forums, ressources partagées, discussions. Excellente communauté!</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">CompTIA Official Blog</div>
+                        <div class="resource-link">comptia.org • Gratuit</div>
+                        <div class="resource-desc">Annonces officielles et mises à jour. Source 100% fiable.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Medium - Cybersecurity Posts</div>
+                        <div class="resource-link">medium.com • Gratuit & Payant</div>
+                        <div class="resource-desc">Articles techniques en profondeur. Excellentes explications.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">Blogs de Sécurité Francophones</div>
+                        <div class="resource-link">Divers • Gratuit</div>
+                        <div class="resource-desc">Articles détaillés en français sur les domaines clés.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="labs">
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">TryHackMe - Security+ Track</div>
+                        <div class="resource-link">tryhackme.com • Gratuit & Premium</div>
+                        <div class="resource-desc">Laboratoires interactifs. Parfait pour la pratique hands-on!</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">HackTheBox</div>
+                        <div class="resource-link">hackthebox.com • Gratuit & Premium</div>
+                        <div class="resource-desc">Exercices de pénétration. Approche très pratique et réaliste.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">OWASP WebGoat</div>
+                        <div class="resource-link">owasp.org • Gratuit</div>
+                        <div class="resource-desc">Sécurité web pratique. Excellent pour comprendre les vulnérabilités.</div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-title">VirtualBox + Ubuntu Server</div>
+                        <div class="resource-link">virtualbox.org • Gratuit</div>
+                        <div class="resource-desc">Créer votre lab personnel. Flexibilité maximale pour expérimenter!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💡 Conseils Clés pour l'Examen</h2>
+            <div class="tips">
+                <ul>
+                    <li>Lisez chaque question complètement - ne devinez pas rapidement</li>
+                    <li>Flaggez les questions difficiles et revenez-y après</li>
+                    <li>Gérez votre temps: pas plus de 2 minutes par question max</li>
+                    <li>Étudiez tous les formats: choix multiples, hotspot, drag-and-drop, etc.</li>
+                    <li>Les réponses apparemment évidentes sont souvent des pièges - cherchez les subtilités</li>
+                    <li>Confirmez votre enregistrement et vos détails d'identification avant l'examen</li>
+                    <li>Reposez-vous la veille de l'examen - pas de cramming de dernière minute!</li>
+                    <li>Apportez une pièce d'identité valide et une preuve d'adresse</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Plan de Révision Finale (7 jours avant l'examen)</h2>
+            <div class="tips">
+                <ul>
+                    <li><strong>J-7:</strong> Examen blanc complet de 90 minutes chrono. Notez vos erreurs.</li>
+                    <li><strong>J-6:</strong> Révision Threats & Vulnerabilities. Focus sur domaine 1.</li>
+                    <li><strong>J-5:</strong> Révision Architecture & Implementation. Domaines 2 & 3.</li>
+                    <li><strong>J-4:</strong> Révision Operations & Governance. Domaines 4 & 5.</li>
+                    <li><strong>J-3:</strong> Simulé complet #2 de 90 minutes. Visez ≥80%</li>
+                    <li><strong>J-2:</strong> Révision pointue. Focus maximal sur domaines faibles.</li>
+                    <li><strong>J-1:</strong> Repos et relaxation. Décrochez! Couchez-vous tôt.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🚀 Conseils Spécifiques pour Vous (Analyste Sécurité)</h2>
+            <div class="tips">
+                <ul>
+                    <li><strong>Avantage principal:</strong> Vous comprenez déjà les concepts, il faut juste apprendre le vocabulaire CompTIA</li>
+                    <li>Focus sur la <strong>terminologie exacte</strong> utilisée par CompTIA</li>
+                    <li>Apprenez les <strong>frameworks</strong> (NIST, ISO 27001, CIS) - souvent moins évidents</li>
+                    <li>Maîtrisez les <strong>processus formels</strong> plutôt que les technologies spécifiques</li>
+                    <li><strong>Zero Trust Architecture</strong> est un nouveau paradigme clé - étudiez-le bien</li>
+                    <li>GRC (Governance, Risk, Compliance) peut être moins intuitive - donnez-lui du temps</li>
+                    <li><strong>40% de votre temps en pratique d'examen</strong> - c'est la clé du succès!</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>✨ Bonne chance! Vous avez l'expérience pratique, maintenant c'est d'apprendre le vocabulaire et les processus CompTIA. Vous avez toutes les chances de réussir! ✨</p>
+            <p style="margin-top: 1rem;">Plan généré le 23 mars 2026 • Adapté à votre calendrier et votre disponibilité</p>
+        </footer>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimer / PDF</button>
+
+    <script>
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+            saveProgress();
+        }
+
+        function switchTab(btn, tabName) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        document.querySelectorAll('.week-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+
+        function saveProgress() {
+            const checked = Array.from(document.querySelectorAll('.checklist-item.checked'))
+                .map(item => item.textContent.trim());
+            localStorage.setItem('security_plus_progress', JSON.stringify(checked));
+            updateGlobalProgress();
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('security_plus_progress');
+            if (saved) {
+                const checked = JSON.parse(saved);
+                document.querySelectorAll('.checklist-item').forEach(item => {
+                    if (checked.some(c => c === item.textContent.trim())) {
+                        item.classList.add('checked');
+                    }
+                });
+            }
+            updateGlobalProgress();
+        }
+
+        function trackWeekProgress(week, element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            
+            const totalItems = document.querySelectorAll(`.week${week}-check`).length;
+            const checkedItems = document.querySelectorAll(`.week${week}-check:checked`).length;
+            const percentage = Math.round((checkedItems / totalItems) * 100);
+            
+            document.getElementById(`week${week}-percent`).textContent = percentage + '%';
+            document.getElementById(`week${week}-fill`).style.width = percentage + '%';
+            
+            saveWeekProgress(week);
+            updateGlobalProgress();
+        }
+
+        function saveWeekProgress(week) {
+            const weekData = {};
+            document.querySelectorAll(`.week${week}-check`).forEach((checkbox, index) => {
+                weekData[`week${week}_item${index}`] = checkbox.checked;
+            });
+            localStorage.setItem(`week${week}_progress`, JSON.stringify(weekData));
+        }
+
+        function loadWeekProgress() {
+            for (let week = 1; week <= 6; week++) {
+                const saved = localStorage.getItem(`week${week}_progress`);
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    document.querySelectorAll(`.week${week}-check`).forEach((checkbox, index) => {
+                        if (data[`week${week}_item${index}`]) {
+                            checkbox.checked = true;
+                        }
+                    });
+                }
+                
+                const totalItems = document.querySelectorAll(`.week${week}-check`).length;
+                const checkedItems = document.querySelectorAll(`.week${week}-check:checked`).length;
+                const percentage = Math.round((checkedItems / totalItems) * 100);
+                
+                document.getElementById(`week${week}-percent`).textContent = percentage + '%';
+                document.getElementById(`week${week}-fill`).style.width = percentage + '%';
+            }
+        }
+
+        function updateGlobalProgress() {
+            const allWeekChecks = document.querySelectorAll('.week-check');
+            const checkedWeekItems = document.querySelectorAll('.week-check:checked');
+            const totalCount = allWeekChecks.length;
+            const checkedCount = checkedWeekItems.length;
+            const percentage = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 0;
+            
+            document.getElementById('global-count').textContent = checkedCount;
+            document.getElementById('global-total').textContent = totalCount;
+            document.getElementById('global-percent').textContent = percentage + '%';
+            document.getElementById('global-fill').style.width = percentage + '%';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+            loadWeekProgress();
+        });
+    </script>
+</body>
+</html>
